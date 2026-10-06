@@ -1,0 +1,570 @@
+<!-- - - - mama - child - crandson
+ -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body{
+        font-size: 18px;
+        
+     
+    }
+     .container_mama{
+        display: grid;
+        grid-template-columns:1fr 1fr 1fr ;
+     }
+     .box{
+        width: 200px;
+        height: 200px;
+        background-color: aquamarine;
+        margin : 20px;
+        padding: 10px;
+        border: solid black 5px;
+
+
+     }
+
+     .container_child{
+        display: flex;
+     }
+
+     .container_child > .box{
+        width: 100px;
+        height: 100px;
+        
+     }
+
+    .container_grand_child{
+        display: grid;
+        grid-template-rows:1fr 1fr 1fr ;
+    }
+
+    .container_grand_child > .box{
+        width: 40px;
+        height: 40px;
+        margin: 5px;
+   
+        
+     }
+
+    </style>
+</head>
+<body>
+     <section class="container_mama">
+        <div class="box"> box</div>
+        <div class="box"> box</div>
+        <div class="box"> box</div>
+        <div class="box"> box</div>
+        <div class="box"> box</div>
+        <section class="container_child"> 
+            <div class="box"> box</div>
+            <div class="container_grand_child"> 
+                <div class="box"> box</div>
+                <div class="box"> box</div>
+                <div class="box"> box</div>
+            </div>
+        </section>
+
+    </section>
+</body>
+</html> -->
+
+<!-- - - - mama - child - crandson   :   answer questions 
+1 why sections and  why div one after another ? 
+2 what  is   relationship  between the container_child and boxes in container_mama? Answer like parent-child , cousins , friends , brothers etc
+3 what  is   relationship  between the container_child and  container_mama and container_grand_child? Answer like parent-child , cousins , friends , brothers etc
+4  what is  "grid-template-columns:1fr 1fr 1fr 1fr " ?   can  i  use it  without display : grid ?   can  i  use it  with display : flex? 
+5 what if  1fr only 2 times like  "grid-template-columns: 1fr 1fr "  not like in example 1fr 4 times
+6  what this does ?  what it updates and what it keeps 
+.container_child > .box{
+        width: 200px;
+        height: 100px;
+        
+     }   
+
+7 why grand child is display : flex ? 
+
+
+
+
+
+
+ - - - - -  POSITIONIING  template:  -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body{
+        font-size: 18px;
+    }
+     .container_mama{
+       display: flex;
+     }
+     .box{
+        width: 100px;
+        height: 100px;
+        background-color: aquamarine;
+        margin : 20px;
+        padding: 10px;
+        border: solid black 5px;
+     }
+     .container_child{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border: solid black 5px;
+        width: 400px;
+
+     }
+     .container_child > .box{
+        background-color: red;
+        color: white;
+     }
+
+     .positionChange{
+        position: absolute;
+        right: 0%;
+        top: 0%;
+     }
+
+     .positionChange2{
+        position: relative;
+        left: 55%;
+     }
+
+    </style>
+</head>
+<body>
+     <section class="container_mama">
+        <div class="box"> box1</div>
+        <div class="box"> box2</div>
+        <section class="container_child"> 
+            <div class="box"> box child1</div>
+            <div class="box positionChange"> box child2</div>
+         
+        </section>
+
+    </section>
+</body>
+</html> -->
+
+<!-- ------ - - -   media   : 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body{
+        font-size: 18px;
+    }
+     .container_mama{
+       display: flex;
+     }
+     .box{
+        width: 100px;
+        height: 100px;
+        background-color: aquamarine;
+        margin : 20px;
+        padding: 10px;
+        border: solid black 5px;
+     }
+     .container_child{
+        display: grid;
+        border: solid black 5px;
+        width: 400px;
+        position:relative;
+
+     }
+     .container_child > .box{
+        background-color: red;
+        color: white;
+     }
+
+    @media screen and (max-width: 800px){
+       .container_mama{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+     }
+      .container_child > .box{
+        background-color: lightgreen;
+        color: black;
+     }
+
+     .container_child{
+        width: 90%;
+     }
+      
+    }
+    
+    </style>
+</head>
+<body>
+     <section class="container_mama">
+        <div class="box"> box1</div>
+        <div class="box"> box2</div>
+        <div class="box"> box3</div>
+        <section class="container_child"> 
+            <div class="box "> box child1</div>
+            <div class="box  "> box child2</div>
+         
+        </section>
+
+    </section>
+</body>
+</html> -->
+
+<!-- - - - - - hover : 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body{
+        font-size: 18px;
+    }
+     .container_mama{
+       display: flex;
+     }
+     .box{
+        width: 100px;
+        height: 100px;
+        background-color: aquamarine;
+        margin : 20px;
+        padding: 10px;
+        border: solid black 5px;
+     }
+     .container_child{
+        display: grid;
+        border: solid black 5px;
+        width: 400px;
+        position:relative;
+
+     }
+     .container_child:hover{
+        background-color: aquamarine;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+     }
+     .container_child > .box{
+        background-color: red;
+        color: white;
+     }
+
+     .container_child > .box:hover{
+        background-color: white;
+        color: black;
+     }
+
+
+     
+
+    </style>
+</head>
+<body>
+     <section class="container_mama">
+        <div class="box"> box1</div>
+        <div class="box"> box2</div>
+        <div class="box"> box3</div>
+        <section class="container_child"> 
+            <div class="box "> box child1</div>
+            <div class="box  "> box child2</div>
+         
+        </section>
+
+    </section>
+</body>
+</html> -->
+
+ <!-- - - - - - hover 2 :   
+
+
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body{
+        font-size: 18px;
+    }
+     .container_mama{
+        display: grid;
+        grid-template-columns:1fr 1fr 1fr 1fr 1fr;
+     }
+    
+     .container_child{
+      display: flex;
+     }
+     .container_child > .box{
+        width: 100px;
+        height: 100px;
+     }
+    .container_grand_child{
+        display: grid;
+        align-items: center;
+    }
+
+    .container_grand_child > .box{
+        width: 40px;
+        height: 40px;
+        margin: 5px;
+     }
+      .box{
+        width: 200px;
+        height: 200px;
+        background-color: aquamarine;
+        margin : 20px;
+        padding: 10px;
+        border: solid black 5px;
+        transition: 0.6s;
+        
+     }
+     .box:hover{
+      position: relative;
+      bottom:20px ;
+      background-color: rgb(19, 52, 41);
+      color: white;
+     }
+
+    </style>
+</head>
+<body>
+     <section class="container_mama">
+        <div class="box"> box</div>
+        <div class="box"> box</div>
+        <div class="box"> box</div>
+        <div class="box"> box</div>
+        <div class="box"> box</div>
+        <section class="container_child"> 
+            <div class="box"> box</div>
+            <div class="container_grand_child"> 
+                <div class="box"> box</div>
+                <div class="box"> box</div>
+                <div class="box"> box</div>
+            </div>
+        </section>
+
+    </section>
+</body>
+</html> -->
+
+ <!-- - - - - -  e-commerce : 
+https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAwjF0GAsiMa-fL4_82JEFBNSP7EGY0NK81nMG677lYA&s=10
+
+
+
+https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmtFF-iAsL66M_YqEVDlTKdi-A-Y5P6S3oEGmOA5Hrog&s=10
+
+
+
+- - - -shoes CARD EXAmple:  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoe Card</title>
+    <style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        min-height: 100vh;
+    }
+
+    .main_container{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .product-card {
+        margin: 20px;
+        margin-top: 30px;
+        width: 340px;
+        background-color: white;
+
+        border-radius: 18px;
+        overflow: hidden;
+
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+        transition: 
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+        transform: translateY(-8px);
+
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .image-box {
+        width: 100%;
+        height: 260px;
+
+        background-color: #f7f7f7;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        overflow: hidden;
+    }
+
+    .image-box img {
+        width: 90%;
+        height: 90%;
+
+        object-fit: contain;
+
+        transition: transform 0.4s ease;
+    }
+
+
+    .product-card:hover img {
+        transform: scale(1.06);
+        background-color: rgb(195, 248, 195);
+        
+    }
+
+    .product-info {
+        padding: 22px;
+    }
+
+    .category {
+        font-size: 11px;
+        font-weight: bold;
+
+        letter-spacing: 1.5px;
+
+        color: #888;
+
+        margin-bottom: 8px;
+    }
+
+    h2 {
+        font-size: 23px;
+        margin-bottom: 10px;
+
+        color: #222;
+    }
+
+    .description {
+        color: #777;
+        font-size: 14px;
+        line-height: 1.5;
+
+        margin-bottom: 20px;
+    }
+
+    .bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .price {
+        font-size: 21px;
+        font-weight: bold;
+        color: #111;
+    }
+
+    button {
+        border: none;
+
+        background-color: #111;
+        color: white;
+
+        padding: 11px 16px;
+
+        border-radius: 8px;
+
+        cursor: pointer;
+
+        transition:
+            background-color 0.3s ease,
+            transform 0.2s ease;
+    }
+
+    button:hover {
+        background-color: #333;
+        transform: translateY(-2px);
+    }
+
+
+    @media screen and (max-width: 800px){
+        .main_container{
+        display: grid;
+        grid-template-columns: 1fr;
+        }}
+
+    </style>
+</head>
+
+<body>
+    <div class="main_container">
+        <div class="product-card">
+
+            <div class="image-box">
+                <img 
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmtFF-iAsL66M_YqEVDlTKdi-A-Y5P6S3oEGmOA5Hrog&s=10"
+                    alt="Minimalist running shoes"
+                >
+            </div>
+
+            <div class="product-info">
+                <p class="category">RUNNING SHOES</p>
+
+                <h2>Urban Runner</h2>
+
+                <p class="description">
+                    Lightweight shoes designed for everyday comfort.
+                </p>
+
+                <div class="bottom">
+                    <span class="price">$129</span>
+                    <button>View Product</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        let product = document.querySelector('.product-card');
+        let body = document.querySelector('.main_container');
+        for (let i = 0; i < 4; i++) {
+            body.appendChild(product.cloneNode(true));
+        }
+        
+    </script>
+
+</body>
+</html>

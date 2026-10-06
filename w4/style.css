@@ -1,0 +1,28 @@
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: lightgray;
+    margin: 10px;
+}
+
+/* .box2, .box4{
+    bottom: 50px;
+    left: 25%;
+    background-color: coral;
+    position: absolute;
+} */
+
+.parent{
+    position: relative;
+    background-color: lightblue;
+    display: flex;
+}
+
+
+.subBox{
+    position: relative;
+    background-color: lightblue;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: red;
+}

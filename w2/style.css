@@ -1,0 +1,8 @@
+.header, .main, body{
+    background-color: #0d243b;
+    color: #ffffff;
+}
+
+a:visited {
+    color: #a154cb;
+}

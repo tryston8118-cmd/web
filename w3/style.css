@@ -1,0 +1,33 @@
+.header{
+    background-color: lightgreen;
+    margin: 60px;
+    padding-left: -20px;
+    width: 90%;
+    h1{
+        border: 5px solid #000000;
+    }
+}
+
+
+.lang{
+    h1{
+        color: green;
+    }
+    width: 25%;
+    background-color: lightblue;
+}
+
+#red_id{
+    color: red;
+}
+
+.baller{
+    width: 50%;
+    background-color: red;
+    color: white;
+    
+    
+    h1{
+        color: white;
+    }
+}
