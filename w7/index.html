@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <p>hm</p>
+    <script>
+        // Reverse Number
+        let x1 = 32243;
+        console.log(x1.toString().split('').reverse().join(""));
+
+        // Sort String Alphabetically
+        let x2 = "webmaster";
+        console.log(x2.split('').sort().join(''));
+
+        // Capitalize First Letter of Each Word
+        let x3 = "the quick brown fox";
+        let y3 = x3.split(' ')
+        for (let index = 0; index < y3.length; index++) {
+            y3[index] = y3[index].charAt(0).toUpperCase() + y3[index].slice(1);
+        }
+        console.log(y3.join(' '));
+        // console.log(x3.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '))
+
+        // Find Longest Word
+        let x4 = "Web Development Tutorial";
+        let longest = x4.split(' ')[0]
+        x4.split(' ').forEach(word => {
+            longest = (word.length>=longest.length)? longest = word: longest = longest;
+            console.log(longest)
+        });
+
+        // Count Vowels
+        function findVowel(word){
+            return (typeof(word) != typeof("hm")) ? "not a string" : (word.split('').reduce((sum,letter) => (['a','e','i','o','u'].includes(letter))? sum+=1:sum+=0 , 0))
+        }
+        console.log(findVowel("The quick brown fox"));
+
+        // Find Second Lowest and Greatest
+        function secondLowestandHighest(numbers){
+            let largest = numbers[0];
+            let smallest = numbers[0];
+            let seclargest = largest - 1;
+            let secSmallest = smallest + 1;
+
+            numbers.forEach(number => {
+                if (number > largest) {
+                    seclargest = largest;
+                    largest = number;
+                }else if (number > seclargest && number != largest){
+                    seclargest = number;
+                }
+                if (number < smallest) {
+                    secSmallest = smallest;
+                    smallest = number;
+                }else if (number < secSmallest && number != smallest){
+                    secSmallest = number;
+            }});
+            return [secSmallest,seclargest]      
+        
+        
+        }
+        console.log(secondLowestandHighest([1,2,3,4,5]));
+
+        // Convert Amount to Coins
+        function amountTocoins(amount, coins){
+            let finalAmount = [];
+            coins.forEach(coin => {
+                do {
+                    if (amount - coin >= 0) {
+                            amount -= coin;
+                            finalAmount.push(coin);
+                    }
+                } while (amount - coin >= 0);
+                    
+            })
+            return finalAmount
+        } 
+        console.log(amountTocoins(46, [25, 10, 5, 2, 1]));
+        
+        // Extract Unique Characters
+        function uniqueChar(word){
+            let final = [];
+            new Set(word.toLowerCase()).forEach(letter => {
+                final.push(letter);
+            })
+            return final.join('')
+        }
+        console.log(uniqueChar("thequickbrownfoxjumpsoverthelazydog"));
+
+        // Count Letter Occurrences
+        function occurrences(word){
+            let final = {};
+            new Set(word.toLowerCase()).forEach(letter => {
+                final[letter] = word.split('').filter(char => char == letter).length;
+            })
+            return final
+        }
+        console.log(occurrences("thequickbrownfoxjumpsoverthelazydog"));
+
+        // Count Letter in String
+        function numberOfLetter(sentance, letter){
+            let final = [];
+            sentance.toLowerCase().split(' ').forEach(word => {
+                word.split('').forEach(letter => {
+                    final.push(letter);
+                })
+            });
+            return  final.filter(char => char == letter).length
+        }
+        console.log(numberOfLetter("MIT is the best school in engineering area", 'e'));
+    </script>
+</body>
+</html>
