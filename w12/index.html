@@ -53,6 +53,29 @@
 
     });
 
+    let fruits = ["apple", "banana", "grape"];
+    let result = [];
+    fruits.forEach(fruit => {
+        result.push(fruit.length)
+    });
+    console.log(result);
+
+
+    let numbers = [1,-2,3,-4,5];
+    result = [];
+    numbers.forEach(number => {
+        // (number < 0)? "" : result.push(number);
+
+        if(number >= 0){
+            result.push(number);
+        }
+
+    });
+    console.log(result);
+
+
+
+
 </script>
 
 </body>
