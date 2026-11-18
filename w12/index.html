@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .product {
+            background-color: #ff0000;
+            color: #ffffff;
+            padding: 15px;
+            width: 50px;
+            height: 50px
+        }
+    </style>
+</head>
+
+<body>
+
+
+<div class="products"></div>
+<br>
+<button class="btn">Create boxes</button>
+
+
+<script>
+    const btn = document.querySelector('.btn');
+    const products = document.querySelector('.products');
+
+    btn.addEventListener('click', function () {
+        products.innerHTML = "";
+        for(let x =0; x<5;x++){
+        products.innerHTML += `<div class='product'>box ${x+1}</div>`;
+        }
+
+    });
+
+</script>
+
+</body>
+</html>

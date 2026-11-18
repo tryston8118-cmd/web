@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.mama{
+    display: flex;
+    width: 50%;
+
+}
+.newMama{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 50%;
+}
+.child{
+    width: 100px;
+    height: 100px;
+    border: 10px solid black;
+    margin: 10px;
+}
+
+    </style>
+</head>
+<body class = 'bodyClass'>
+    <p  class = 'pClass'> hello   guys </p>
+    <div class = 'mama'>
+    <div class='child'></div>
+    <div class='child'></div>
+    <div class='child'></div>
+    <div class='child'></div>
+    </div>
+    <script>
+        let mama = document.querySelector('.mama');
+        mama.classList.replace('mama', 'newMama');
+
+        
+        let child = document.querySelectorAll(".child");
+        child.forEach(elem => {
+            elem.style.backgroundColor = "red";
+            elem.style.border = "0px";
+            elem.style.width = "50px";
+        });
+
+    </script>
+</body>
+</html>

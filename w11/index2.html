@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .product {
+            border: 1px solid #ddd;
+            padding: 15px;
+        }
+
+        .product img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .product h3 {
+            margin: 10px 0 5px;
+        }
+
+        .product p {
+            margin: 0;
+        }
+
+        body.dark-mode{
+                background-color: black;
+                color: white
+        }
+
+    </style>
+</head>
+
+<body>
+
+<button class="dark-mode">Toggle mode</button>
+
+<input type="number" class="priceInput" placeholder="Enter maximum price">
+
+<button class="btn">Search</button>
+
+<div class="products"></div>
+
+<div class="products"></div> 
+
+<script>
+
+    const items = [
+        {
+            "sys": { "id": "1" },
+            "fields": {
+                "title": "queen panel bed",
+                "price": 10.99,
+                "image": {
+                    "fields": {
+                        "file": {
+                            "url": "https://mandauefoam.ph/cdn/shop/collections/0_OUTDOOR_CHAIR_A.jpg?v=1772006292&width=3750"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "sys": { "id": "2" },
+            "fields": {
+                "title": "king panel bed",
+                "price": 12.99,
+                "image": {
+                    "fields": {
+                        "file": {
+                            "url": "https://i5.walmartimages.com/seo/Mainstays-Round-Arm-Accent-Chair_dcf4ab39-8e63-4e69-ab5f-b73f1d05ad85.a4a51015576fa50cccb2b8df6e9723ed.png"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "sys": { "id": "3" },
+            "fields": {
+                "title": "single panel bed",
+                "price": 12.99,
+                "image": {
+                    "fields": {
+                        "file": {
+                            "url": "https://m.media-amazon.com/images/I/71Ij37SJ15L._AC_UF894,1000_QL80_.jpg"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "sys": { "id": "4" },
+            "fields": {
+                "title": "twin panel bed",
+                "price": 22.99,
+                "image": {
+                    "fields": {
+                        "file": {
+                            "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrp5H5Q5eCMZTx_zFwBMN6cK8mt59Bx_GVQ7nCR1uT2hQE9-3OJ0D9MzU&s=10"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "sys": { "id": "5" },
+            "fields": {
+                "title": "fridge",
+                "price": 88.99,
+                "image": {
+                    "fields": {
+                        "file": {
+                            "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0a1m6D9WRFnY1jwUlOrn2b131npudoiLynOkPDInjTf8cPnw22tWiX7E&s=10"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "sys": { "id": "6" },
+            "fields": {
+                "title": "dresser",
+                "price": 32.99,
+                "image": {
+                    "fields": {
+                        "file": {
+                            "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS86Y3O5PO3IOJyPmrngFkiUQplTh75BqyfUkkXLRqEyfg6Vukj3H_AmQQ&s=10"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "sys": { "id": "7" },
+            "fields": {
+                "title": "couch",
+                "price": 45.99,
+                "image": {
+                    "fields": {
+                        "file": {
+                            "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDhQF-fRYTEFU0qY0YDC0Ekw4fXMzOPe1KYvMkXufbXaPfHoZyH8S3dBI&s=10"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "sys": { "id": "8" },
+            "fields": {
+                "title": "table",
+                "price": 33.99,
+                "image": {
+                    "fields": {
+                        "file": {
+                            "url": "https://cdn.thewirecutter.com/wp-content/media/2026/01/BEST-OFFICE-CHAIRS-2048px-08712.jpg?width=2048&quality=60&crop=2048:2048&auto=webp"
+                        }
+                    }
+                }
+            }
+        }
+    ];
+
+
+    const btn = document.querySelector('.btn');
+    const products = document.querySelector('.products');
+    const priceInput = document.querySelector('.priceInput');
+    const mode = document.querySelector('.dark-mode');
+
+    mode.addEventListener('click', function(){
+        document.body.classList.toggle('dark-mode');
+    })
+
+    btn.addEventListener('click', function () {
+        products.innerHTML = "";
+        let maxPrice = Number(priceInput.value);
+
+
+
+        items.forEach(item => {
+
+            (item.fields.price<=maxPrice)?
+
+            products.innerHTML += `
+        <div class="product">
+            <img src="${item.fields.image.fields.file.url}" alt="I refuse to use wifi">
+            <h3>${item.fields.title}</h3>
+            <p>$${item.fields.price}</p>
+        </div>
+        `  :  "";
+        });
+        
+
+
+
+    });
+
+</script>
+
+</body>
+</html>
